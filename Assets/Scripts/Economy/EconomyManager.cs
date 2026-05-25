@@ -9,15 +9,24 @@ public class EconomyManager : MonoBehaviour
     private void OnEnable()
     {
         EventManager.onCheeseCollected += AddCheeseAmount;
+        EventManager.onCheeseDeposited += SubtractCheeseAmount;
     }
 
     private void OnDisable()
     {
         EventManager.onCheeseCollected -= AddCheeseAmount;
+        EventManager.onCheeseDeposited -= SubtractCheeseAmount;
     }
 
     public void AddCheeseAmount(int amount)
     {
         cheeseAmount += amount;
     }
+
+    public void SubtractCheeseAmount(int amount)
+    {
+        cheeseAmount -= amount;
+    }
+
+    public int GetCheeseAmount() => cheeseAmount;
 }
