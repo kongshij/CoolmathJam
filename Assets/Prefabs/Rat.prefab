@@ -612,6 +612,7 @@ GameObject:
   - component: {fileID: 8431430294425174732}
   - component: {fileID: 6785018812483990888}
   - component: {fileID: 3908791657824853284}
+  - component: {fileID: 6163541390369234137}
   m_Layer: 6
   m_Name: Rat
   m_TagString: Untagged
@@ -855,6 +856,20 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &6163541390369234137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2885265898465372112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e1f2ae28d10c1645a781fa9e82e87ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Jetpack
+  controller: {fileID: 1436006339519121197}
+  fuel: 10
 --- !u!1 &3249456327823669374
 GameObject:
   m_ObjectHideFlags: 0

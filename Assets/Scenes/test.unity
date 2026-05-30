@@ -401,6 +401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e04568af9517e174eb0391ddb015dc71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EconomyManager
+  cheeseAmount: 0
 --- !u!4 &116621241
 Transform:
   m_ObjectHideFlags: 0
@@ -2138,6 +2139,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4819937292351708011, guid: 56abf0355f41ebb47ae8a72c0345a3ec, type: 3}
+      propertyPath: economyManager
+      value: 
+      objectReference: {fileID: 116621240}
     - target: {fileID: 8694397070920052153, guid: 56abf0355f41ebb47ae8a72c0345a3ec, type: 3}
       propertyPath: m_Name
       value: Bank

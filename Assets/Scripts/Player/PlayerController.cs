@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, 1.1f);
+        isGrounded = Physics.Raycast(transform.position, Vector3.down, 0.25f);
 
         Vector2 inputDir = Vector2.zero;
         if (moveAction != null)
@@ -61,4 +61,8 @@ public class PlayerController : MonoBehaviour
         rigidBody.linearVelocity = movementDir * playerSpeed;
         animator.SetBool("isWalking", movementDir.magnitude >= 0.1f);
     }
+
+    public void Fly() => rigidBody.AddForce(Vector3.up * 10);
+
+    public bool GetGrounded() => isGrounded;
 }
