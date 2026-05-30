@@ -3,6 +3,7 @@ using System;
 public static class EventManager
 {
     public static Action openBankUI;
+    public static Action closeBankUI;
 
     public static Action<int> onCheeseCollected;
     public static Action onCheeseGoalReached;

@@ -43,5 +43,7 @@ public class Collector : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         currentInteractable = null;
+
+        if (other.GetComponent<Bank>()) EventManager.closeBankUI?.Invoke();
     }
 }

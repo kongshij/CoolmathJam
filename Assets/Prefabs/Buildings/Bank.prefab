@@ -550,6 +550,8 @@ GameObject:
   - component: {fileID: 3893089308210886254}
   - component: {fileID: 4069043378087841238}
   - component: {fileID: 5214415053133490494}
+  - component: {fileID: 5337720768040008411}
+  - component: {fileID: 4098153509453592658}
   m_Layer: 5
   m_Name: BankUI
   m_TagString: Untagged
@@ -640,6 +642,31 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!225 &5337720768040008411
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3632050724874668103}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &4098153509453592658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3632050724874668103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dced141ddefb330418729ed35eb44e35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BankUI
+  canvas: {fileID: 5337720768040008411}
 --- !u!1 &3719542520121312444
 GameObject:
   m_ObjectHideFlags: 0
