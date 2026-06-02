@@ -601,18 +601,6 @@ PrefabInstance:
       value: Rat
       objectReference: {fileID: 0}
     - target: {fileID: 3089108665595432646, guid: 36549aaedd9638c4eadafb801ccb4e30, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3089108665595432646, guid: 36549aaedd9638c4eadafb801ccb4e30, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3089108665595432646, guid: 36549aaedd9638c4eadafb801ccb4e30, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3089108665595432646, guid: 36549aaedd9638c4eadafb801ccb4e30, type: 3}
       propertyPath: m_LocalPosition.x
       value: 17.22
       objectReference: {fileID: 0}
@@ -651,10 +639,6 @@ PrefabInstance:
     - target: {fileID: 3089108665595432646, guid: 36549aaedd9638c4eadafb801ccb4e30, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3089108665595432646, guid: 36549aaedd9638c4eadafb801ccb4e30, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
