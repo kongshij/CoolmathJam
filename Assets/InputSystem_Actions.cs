@@ -1077,6 +1077,54 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Bank"",
+            ""id"": ""a44d8362-e454-4aae-9ce5-c6746a8507d4"",
+            ""actions"": [
+                {
+                    ""name"": ""Deposit"",
+                    ""type"": ""Button"",
+                    ""id"": ""4660f39a-c45d-48ff-8c65-d6e74fc166dc"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Withdraw"",
+                    ""type"": ""Button"",
+                    ""id"": ""44baeb8c-9080-435c-b0c0-a2d955a89398"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""27ca925e-4d37-4c7a-9d3d-ed58fe76b6bd"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Deposit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""87a7d036-7583-48b3-8fb0-707303983d32"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Withdraw"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -1165,12 +1213,17 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_UI_ScrollWheel = m_UI.FindAction("ScrollWheel", throwIfNotFound: true);
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
+        // Bank
+        m_Bank = asset.FindActionMap("Bank", throwIfNotFound: true);
+        m_Bank_Deposit = m_Bank.FindAction("Deposit", throwIfNotFound: true);
+        m_Bank_Withdraw = m_Bank.FindAction("Withdraw", throwIfNotFound: true);
     }
 
     ~@InputSystem_Actions()
     {
         UnityEngine.Debug.Assert(!m_Player.enabled, "This will cause a leak and performance issues, InputSystem_Actions.Player.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_UI.enabled, "This will cause a leak and performance issues, InputSystem_Actions.UI.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Bank.enabled, "This will cause a leak and performance issues, InputSystem_Actions.Bank.Disable() has not been called.");
     }
 
     /// <summary>
@@ -1621,6 +1674,113 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="UIActions" /> instance referencing this action map.
     /// </summary>
     public UIActions @UI => new UIActions(this);
+
+    // Bank
+    private readonly InputActionMap m_Bank;
+    private List<IBankActions> m_BankActionsCallbackInterfaces = new List<IBankActions>();
+    private readonly InputAction m_Bank_Deposit;
+    private readonly InputAction m_Bank_Withdraw;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "Bank".
+    /// </summary>
+    public struct BankActions
+    {
+        private @InputSystem_Actions m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public BankActions(@InputSystem_Actions wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "Bank/Deposit".
+        /// </summary>
+        public InputAction @Deposit => m_Wrapper.m_Bank_Deposit;
+        /// <summary>
+        /// Provides access to the underlying input action "Bank/Withdraw".
+        /// </summary>
+        public InputAction @Withdraw => m_Wrapper.m_Bank_Withdraw;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_Bank; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="BankActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(BankActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="BankActions" />
+        public void AddCallbacks(IBankActions instance)
+        {
+            if (instance == null || m_Wrapper.m_BankActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_BankActionsCallbackInterfaces.Add(instance);
+            @Deposit.started += instance.OnDeposit;
+            @Deposit.performed += instance.OnDeposit;
+            @Deposit.canceled += instance.OnDeposit;
+            @Withdraw.started += instance.OnWithdraw;
+            @Withdraw.performed += instance.OnWithdraw;
+            @Withdraw.canceled += instance.OnWithdraw;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="BankActions" />
+        private void UnregisterCallbacks(IBankActions instance)
+        {
+            @Deposit.started -= instance.OnDeposit;
+            @Deposit.performed -= instance.OnDeposit;
+            @Deposit.canceled -= instance.OnDeposit;
+            @Withdraw.started -= instance.OnWithdraw;
+            @Withdraw.performed -= instance.OnWithdraw;
+            @Withdraw.canceled -= instance.OnWithdraw;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="BankActions.UnregisterCallbacks(IBankActions)" />.
+        /// </summary>
+        /// <seealso cref="BankActions.UnregisterCallbacks(IBankActions)" />
+        public void RemoveCallbacks(IBankActions instance)
+        {
+            if (m_Wrapper.m_BankActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="BankActions.AddCallbacks(IBankActions)" />
+        /// <seealso cref="BankActions.RemoveCallbacks(IBankActions)" />
+        /// <seealso cref="BankActions.UnregisterCallbacks(IBankActions)" />
+        public void SetCallbacks(IBankActions instance)
+        {
+            foreach (var item in m_Wrapper.m_BankActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_BankActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="BankActions" /> instance referencing this action map.
+    /// </summary>
+    public BankActions @Bank => new BankActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     /// <summary>
     /// Provides access to the input control scheme.
@@ -1834,5 +1994,27 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Bank" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="BankActions.AddCallbacks(IBankActions)" />
+    /// <seealso cref="BankActions.RemoveCallbacks(IBankActions)" />
+    public interface IBankActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "Deposit" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnDeposit(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Withdraw" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnWithdraw(InputAction.CallbackContext context);
     }
 }

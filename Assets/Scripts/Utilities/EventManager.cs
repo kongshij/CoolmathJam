@@ -11,6 +11,7 @@ public static class EventManager
     // Cheese transactions
     public static Action<int> onCheeseWithdrawn;
     public static Action<int> onCheeseDeposited;
+    public static Action<int> onCheeseSavingsUpdated;
 
     // Cheese transaction errors
     public static Action onCheeseWithdrawnError;

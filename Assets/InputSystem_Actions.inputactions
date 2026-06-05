@@ -991,6 +991,54 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Bank",
+            "id": "a44d8362-e454-4aae-9ce5-c6746a8507d4",
+            "actions": [
+                {
+                    "name": "Deposit",
+                    "type": "Button",
+                    "id": "4660f39a-c45d-48ff-8c65-d6e74fc166dc",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Withdraw",
+                    "type": "Button",
+                    "id": "44baeb8c-9080-435c-b0c0-a2d955a89398",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "27ca925e-4d37-4c7a-9d3d-ed58fe76b6bd",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Deposit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "87a7d036-7583-48b3-8fb0-707303983d32",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Withdraw",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

@@ -16,7 +16,6 @@ public class Collector : MonoBehaviour
     {
         actions.Player.Enable();
         actions.Player.Interact.performed += StartInteract;
-        actions.Player.Interact.canceled += StartInteract;
     }
 
     private void OnDisable()
