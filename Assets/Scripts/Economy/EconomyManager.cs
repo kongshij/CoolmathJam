@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EconomyManager : MonoBehaviour
 {
@@ -21,6 +22,10 @@ public class EconomyManager : MonoBehaviour
     public void AddCheeseAmount(int amount)
     {
         cheeseAmount += amount;
+        if (cheeseAmount >= CHEESE_GOAL)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 
     public void SubtractCheeseAmount(int amount)
