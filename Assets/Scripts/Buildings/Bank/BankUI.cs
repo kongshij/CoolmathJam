@@ -7,6 +7,11 @@ public class BankUI : MonoBehaviour
     [SerializeField] private CanvasGroup canvas;
     [SerializeField] private TextMeshProUGUI cheeseSavedText;
 
+    [SerializeField] private AudioSource sfxPlayer;
+    [SerializeField] private AudioClip bankOpenSFX;
+    [SerializeField] private AudioClip bankCloseSFX;
+
+
     void OnEnable()
     {
         EventManager.onCheeseSavingsUpdated += UpdateCheeseText;
@@ -21,7 +26,17 @@ public class BankUI : MonoBehaviour
         EventManager.closeBankUI -= CloseUI;
     }
 
-    private void OpenUI() => canvas.alpha = 1;
-    private void CloseUI() => canvas.alpha = 0;
+    private void OpenUI()
+    {
+        sfxPlayer.PlayOneShot(bankOpenSFX);
+        canvas.alpha = 1;
+    }
+
+    private void CloseUI()
+    {
+        sfxPlayer.PlayOneShot(bankCloseSFX);
+        canvas.alpha = 0;
+    }
+
     private void UpdateCheeseText(int amount) => cheeseSavedText.text = amount + "";
 }

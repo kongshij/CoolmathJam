@@ -8,6 +8,9 @@ public class Bank : MonoBehaviour, IInteractable
     private const float INVESTMENT_TIME = 2.0f;
 
     [SerializeField] private EconomyManager economyManager;
+    [SerializeField] private AudioSource sfxPlayer;
+    [SerializeField] private AudioClip depositSfx;
+    [SerializeField] private AudioClip withdrawSfx;
 
     private InputSystem_Actions inputActions;
     private int _storedCheese = 0;
@@ -85,12 +88,14 @@ public class Bank : MonoBehaviour, IInteractable
 
     private void DepositCheese(int amount)
     {
+        sfxPlayer.PlayOneShot(depositSfx);
         _storedCheese += amount;
         economyManager.SubtractCheeseAmount(amount);
     }
 
     private void WithdrawCheese()
     {
+        sfxPlayer.PlayOneShot(withdrawSfx);
         EventManager.onCheeseCollected?.Invoke(_storedCheese);
         _storedCheese = 0;
         StopCoroutine(nameof(Invest));
