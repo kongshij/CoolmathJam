@@ -15,6 +15,7 @@ public class Bank : MonoBehaviour, IInteractable
     private InputSystem_Actions inputActions;
     private int _storedCheese = 0;
     private bool investingActive = false;
+    private bool canUseServices = false;
 
 
     private void Awake()
@@ -32,6 +33,7 @@ public class Bank : MonoBehaviour, IInteractable
         inputActions.Bank.Enable();
         inputActions.Bank.Deposit.performed += DepositInputAction;
         inputActions.Bank.Withdraw.performed += WithdrawInputAction;
+        EventManager.closeBankUI += NoLongerServicable;
     }
 
     private void OnDisable()
@@ -39,11 +41,12 @@ public class Bank : MonoBehaviour, IInteractable
         inputActions.Bank.Disable();
         inputActions.Bank.Deposit.performed -= DepositInputAction;
         inputActions.Bank.Withdraw.performed -= WithdrawInputAction;
+        EventManager.closeBankUI -= NoLongerServicable;
     }
 
     public void DepositInputAction(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && canUseServices)
         {
             DepositCheese(economyManager.cheeseAmount);
             StartInvesting();
@@ -53,7 +56,7 @@ public class Bank : MonoBehaviour, IInteractable
 
     public void WithdrawInputAction(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && canUseServices)
         {
             WithdrawCheese();
         }
@@ -88,6 +91,7 @@ public class Bank : MonoBehaviour, IInteractable
 
     private void DepositCheese(int amount)
     {
+        if (economyManager.GetCheeseAmount() == 0) return;
         sfxPlayer.PlayOneShot(depositSfx);
         _storedCheese += amount;
         economyManager.SubtractCheeseAmount(amount);
@@ -95,6 +99,7 @@ public class Bank : MonoBehaviour, IInteractable
 
     private void WithdrawCheese()
     {
+        if (_storedCheese == 0) return;
         sfxPlayer.PlayOneShot(withdrawSfx);
         EventManager.onCheeseCollected?.Invoke(_storedCheese);
         _storedCheese = 0;
@@ -103,8 +108,11 @@ public class Bank : MonoBehaviour, IInteractable
         EventManager.onCheeseSavingsUpdated?.Invoke(_storedCheese);
     }
 
+    private void NoLongerServicable() => canUseServices = false;
+
     public void Interact()
     {
         EventManager.openBankUI?.Invoke();
+        canUseServices = true;
     }
 }

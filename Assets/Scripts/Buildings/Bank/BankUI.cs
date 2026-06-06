@@ -28,6 +28,7 @@ public class BankUI : MonoBehaviour
 
     private void OpenUI()
     {
+        if (canvas.alpha == 1) return;
         sfxPlayer.PlayOneShot(bankOpenSFX);
         canvas.alpha = 1;
     }
