@@ -143,27 +143,27 @@ ModelImporter:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Cartoon_Texture_2048
-    second: {fileID: 2800000, guid: 811ecccff67de204abac03ead04482ae, type: 3}
+    second: {fileID: 2800000, guid: 3679863c89f75c740b1065085e6d6b63, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: TIle
-    second: {fileID: 2800000, guid: 4b8970673ad909a4ea01c42107e78427, type: 3}
+    second: {fileID: 2800000, guid: a113d94e5bcdb094f8c1eb9d5f8e498e, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Untitled.001
-    second: {fileID: 2800000, guid: c58426c64c16d1e46ab0a24f827b4a2c, type: 3}
+    second: {fileID: 2800000, guid: b7b11c61083f6c843bef6b4c01970274, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Wallpaper
-    second: {fileID: 2800000, guid: 37bd4b536308a6c48a703dce59680e9a, type: 3}
+    second: {fileID: 2800000, guid: b12ecabe85c7b47439fcfc2aca01c950, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: light-brown-cartoon-wood-texture-pattern-wallpaper-background-free-vector
-    second: {fileID: 2800000, guid: f3cdf9868d3f6774295693248d5b8484, type: 3}
+    second: {fileID: 2800000, guid: 8459c1d10b2c5f74e89aebe494cf0b8d, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
