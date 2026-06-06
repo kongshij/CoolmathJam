@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2951515960452364783}
   - component: {fileID: 592172611797786307}
   - component: {fileID: 6647072784340912339}
+  - component: {fileID: 3560455351408328833}
   m_Layer: 0
   m_Name: CinemachineBrain
   m_TagString: Untagged
@@ -27,13 +28,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1392627052075783871}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1748195, y: 0.0000000034455934, z: -6.11778e-10, w: 0.98460054}
+  m_LocalRotation: {x: 0.17481683, y: 0, z: 0, w: 0.984601}
   m_LocalPosition: {x: 0, y: 1.22, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 20.136, y: 0, z: 0}
 --- !u!114 &2951515960452364783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,3 +162,11 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!81 &3560455351408328833
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1392627052075783871}
+  m_Enabled: 1
