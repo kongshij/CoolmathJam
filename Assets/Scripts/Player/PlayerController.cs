@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rigidBody;
     private InputAction moveAction;
     private Vector3 movementDir;
-    private bool isGrounded;
     private InputAction lookAction;
     [SerializeField] private float lookSpeed = 5f;
     [SerializeField] private float rotationSmoothTime = 0.05f;
@@ -31,8 +30,6 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, 0.25f);
-
         Vector2 inputDir = Vector2.zero;
         if (moveAction != null)
             inputDir = moveAction.ReadValue<Vector2>();
@@ -61,8 +58,4 @@ public class PlayerController : MonoBehaviour
         rigidBody.linearVelocity = movementDir * playerSpeed;
         animator.SetBool("isWalking", movementDir.magnitude >= 0.1f);
     }
-
-    public void Fly() => rigidBody.AddForce(Vector3.up * 10);
-
-    public bool GetGrounded() => isGrounded;
 }
