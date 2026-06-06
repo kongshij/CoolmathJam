@@ -2674,7 +2674,7 @@ GameObject:
   - component: {fileID: 2126694507}
   - component: {fileID: 2126694506}
   m_Layer: 5
-  m_Name: PLAY
+  m_Name: CREDITS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2719,7 +2719,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PLAY!
+  m_text: CREDITS!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bb059da244092424096e2438af41fc86, type: 2}
   m_sharedMaterial: {fileID: -1234911305746585030, guid: bb059da244092424096e2438af41fc86, type: 2}
