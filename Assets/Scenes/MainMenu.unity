@@ -1418,7 +1418,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Music & SFX  . . . . . . . . . . . . . . . . . . . . . .  JEVIL
+  m_text: Music & SFX  . . . . . . . . . . . . . . . . .  Piano Maniac
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bb059da244092424096e2438af41fc86, type: 2}
   m_sharedMaterial: {fileID: -1234911305746585030, guid: bb059da244092424096e2438af41fc86, type: 2}
@@ -1684,7 +1684,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Programmer  . . . . . . . . . .  Ballisticbear703
+  m_text: Programmer  . . . . . . . . . . . . .  Ballisticbear703
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bb059da244092424096e2438af41fc86, type: 2}
   m_sharedMaterial: {fileID: -1234911305746585030, guid: bb059da244092424096e2438af41fc86, type: 2}
@@ -2091,7 +2091,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 3D Models  . . . . . . . . . . . . . . . . . . . . . . .  SPAM
+  m_text: '3D Models  . . . . . .  ITSMUFFINTIME_NHE_HE_HE '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bb059da244092424096e2438af41fc86, type: 2}
   m_sharedMaterial: {fileID: -1234911305746585030, guid: bb059da244092424096e2438af41fc86, type: 2}
