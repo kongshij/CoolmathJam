@@ -25,7 +25,7 @@ public class MainMenuController : MonoBehaviour
         mainCamera.enabled = false;
         creditsCamera.enabled = true;
         mainMenuCanvas.gameObject.SetActive(false);
-        creditsCamera.gameObject.SetActive(true);
+        creditsCanvas.gameObject.SetActive(true);
     }
 
     public void GoToMainMenu()
@@ -33,7 +33,7 @@ public class MainMenuController : MonoBehaviour
         mainCamera.enabled = true;
         creditsCamera.enabled = false;
         mainMenuCanvas.gameObject.SetActive(true);
-        creditsCamera.gameObject.SetActive(false);
+        creditsCanvas.gameObject.SetActive(false);
     }
 
     public void QuitGame()
