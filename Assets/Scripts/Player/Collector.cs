@@ -4,8 +4,12 @@ using UnityEngine.InputSystem;
 // Might wanna rename to Interactor
 public class Collector : MonoBehaviour
 {
+    [SerializeField] private AudioSource sfxPlayer;
+    [SerializeField] private AudioClip cheeseCollectSfx;
+
     InputSystem_Actions actions;
     IInteractable currentInteractable = null;
+
 
     void Awake()
     {
@@ -29,11 +33,14 @@ public class Collector : MonoBehaviour
         if (context.performed) currentInteractable?.Interact();
     }
 
-
     private void OnTriggerEnter(Collider other)
     {
         // Collision with cheese - ICheese supports different types of cheese
-        other.GetComponent<ICheese>()?.Collect();
+        if (other.GetComponent<ICheese>() != null)
+        {
+            other.GetComponent<ICheese>().Collect();
+            sfxPlayer.PlayOneShot(cheeseCollectSfx);
+        }
 
         // Collision with an interactable object (i.e., Bank, shop, etc.)
         currentInteractable = other.GetComponent<IInteractable>();
