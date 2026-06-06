@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class EconomyManager : MonoBehaviour
 {
-    private const int CHEESE_GOAL = 10;
+    private const int CHEESE_GOAL = 150;
     public int cheeseAmount = 0;
 
 

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Gouda
   m_EditorClassIdentifier: Assembly-CSharp::CheeseScriptableObject
   cheeseName: Gouda
-  value: 2
+  value: 7

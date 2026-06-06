@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Colby
   m_EditorClassIdentifier: Assembly-CSharp::CheeseScriptableObject
   cheeseName: Colby
-  value: 1
+  value: 4

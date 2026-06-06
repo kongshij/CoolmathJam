@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: UltraStinky
   m_EditorClassIdentifier: Assembly-CSharp::CheeseScriptableObject
   cheeseName: Ultra Stinky
-  value: 5
+  value: 10

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Mozzarella
   m_EditorClassIdentifier: Assembly-CSharp::CheeseScriptableObject
   cheeseName: Mozzarella
-  value: 3
+  value: 7
