@@ -928,6 +928,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4819937292351708011, guid: 56abf0355f41ebb47ae8a72c0345a3ec, type: 3}
+      propertyPath: economyManager
+      value: 
+      objectReference: {fileID: 116621240}
     - target: {fileID: 8694397070920052153, guid: 56abf0355f41ebb47ae8a72c0345a3ec, type: 3}
       propertyPath: m_Name
       value: Bank

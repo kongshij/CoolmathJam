@@ -24,6 +24,8 @@ public class EconomyManager : MonoBehaviour
         cheeseAmount += amount;
         if (cheeseAmount >= CHEESE_GOAL)
         {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
