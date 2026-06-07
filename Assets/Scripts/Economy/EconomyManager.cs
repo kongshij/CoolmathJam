@@ -7,6 +7,11 @@ public class EconomyManager : MonoBehaviour
     public int cheeseAmount = 0;
 
 
+    private void Start()
+    {
+        EventManager.onCheeseAmountUpdated?.Invoke(cheeseAmount);
+    }
+
     private void OnEnable()
     {
         EventManager.onCheeseCollected += AddCheeseAmount;
@@ -28,11 +33,13 @@ public class EconomyManager : MonoBehaviour
             Cursor.visible = true;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
+        EventManager.onCheeseAmountUpdated?.Invoke(cheeseAmount);
     }
 
     public void SubtractCheeseAmount(int amount)
     {
         cheeseAmount -= amount;
+        EventManager.onCheeseAmountUpdated?.Invoke(cheeseAmount);
     }
 
     public int GetCheeseAmount() => cheeseAmount;

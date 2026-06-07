@@ -26,6 +26,7 @@ public class Jetpack : MonoBehaviour
     private void Start()
     {
         playerRb = GetComponent<Rigidbody>();
+        EventManager.onJetpackFuelUpdated?.Invoke(fuel / TOTAL_FUEL);
     }
 
     private void OnEnable()
@@ -47,7 +48,11 @@ public class Jetpack : MonoBehaviour
         if (isGrounded && !isActive)
         {
             if (fuel < TOTAL_FUEL)
+            {
                 fuel += Time.deltaTime * REFUEL_SPEED;
+                EventManager.onJetpackFuelUpdated?.Invoke(fuel / TOTAL_FUEL);
+            }
+            
         }
         else if (isActive)
         {
@@ -57,6 +62,7 @@ public class Jetpack : MonoBehaviour
                 return;
             }
             fuel -= Time.deltaTime * BURN_SPEED;
+            EventManager.onJetpackFuelUpdated?.Invoke(fuel / TOTAL_FUEL);
         }
     }
 
