@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class Bank : MonoBehaviour, IInteractable
 {
     private const int AMOUNT_INCREASE = 10;
-    private const float INVESTMENT_TIME = 2.0f;
+    private const float INVESTMENT_TIME = 10.0f;
 
     [SerializeField] private EconomyManager economyManager;
     [SerializeField] private AudioSource sfxPlayer;
