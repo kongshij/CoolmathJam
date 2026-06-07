@@ -35,6 +35,7 @@ public class BankUI : MonoBehaviour
 
     private void CloseUI()
     {
+        if (canvas.alpha == 0) return;
         sfxPlayer.PlayOneShot(bankCloseSFX);
         canvas.alpha = 0;
     }
