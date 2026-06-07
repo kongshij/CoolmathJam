@@ -607,13 +607,13 @@ GameObject:
   m_Component:
   - component: {fileID: 3089108665595432646}
   - component: {fileID: 1234918135284619091}
-  - component: {fileID: 1436006339519121197}
   - component: {fileID: 6479305083607621764}
-  - component: {fileID: 8431430294425174732}
-  - component: {fileID: 6785018812483990888}
+  - component: {fileID: 589996821500163374}
   - component: {fileID: 3908791657824853284}
-  - component: {fileID: 6163541390369234137}
   - component: {fileID: 5572511435650890824}
+  - component: {fileID: 1436006339519121197}
+  - component: {fileID: 6785018812483990888}
+  - component: {fileID: 6163541390369234137}
   m_Layer: 6
   m_Name: Rat
   m_TagString: Untagged
@@ -664,22 +664,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1436006339519121197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2885265898465372112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26bc0e395fe5c2348a81b24a677a0ff8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  playerSpeed: 5
-  lookSpeed: 5
-  rotationSmoothTime: 0.05
-  animator: {fileID: 7814436905111629200}
 --- !u!54 &6479305083607621764
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -707,8 +691,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!65 &8431430294425174732
-BoxCollider:
+--- !u!136 &589996821500163374
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -725,23 +709,11 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.12, y: 0.18, z: 0.125}
-  m_Center: {x: 0, y: -0.02, z: 0}
---- !u!114 &6785018812483990888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2885265898465372112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e222bd1ac35c39e4c9fab17955d29b48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Collector
-  sfxPlayer: {fileID: 5572511435650890824}
-  cheeseCollectSfx: {fileID: 8300000, guid: cab5744212addd244a75851b83bed3ac, type: 3}
+  serializedVersion: 2
+  m_Radius: 0.15
+  m_Height: 0.02
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3908791657824853284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -860,19 +832,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &6163541390369234137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2885265898465372112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e1f2ae28d10c1645a781fa9e82e87ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Jetpack
-  fuel: 10
 --- !u!82 &5572511435650890824
 AudioSource:
   m_ObjectHideFlags: 0
@@ -970,6 +929,49 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1436006339519121197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2885265898465372112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26bc0e395fe5c2348a81b24a677a0ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  playerSpeed: 5
+  lookSpeed: 5
+  rotationSmoothTime: 0.05
+  animator: {fileID: 7814436905111629200}
+--- !u!114 &6785018812483990888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2885265898465372112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e222bd1ac35c39e4c9fab17955d29b48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Collector
+  sfxPlayer: {fileID: 5572511435650890824}
+  cheeseCollectSfx: {fileID: 8300000, guid: cab5744212addd244a75851b83bed3ac, type: 3}
+--- !u!114 &6163541390369234137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2885265898465372112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e1f2ae28d10c1645a781fa9e82e87ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Jetpack
+  fuel: 10
 --- !u!1 &3249456327823669374
 GameObject:
   m_ObjectHideFlags: 0
